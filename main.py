@@ -103,7 +103,6 @@ def training(agent_model): # Actor-Critic RL Method
             rewards = []
             for i, record in enumerate(data_c.buffer[:data_c.learn_batch_num]):
                 for j, next_record in enumerate(data_c.buffer[i+1: i+data_c.n]):
-                  # 使用 discount 计算 target reward
                     if next_record.down == False:
                         reward += data_c.gamma**(j+1) * next_record.reward
                     else:
